@@ -1,2 +1,5 @@
 *~
 *DS_Store
+*.pro.user
+build-PhoneBook-*-Debug
+build-PhoneBook-*-Release

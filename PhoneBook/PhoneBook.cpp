@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "CSVParser.hpp"
@@ -32,7 +33,7 @@ void PhoneBook::filterInPlace(std::function<bool(Contact)> func)
 
 std::vector<Contact> PhoneBook::sort(const Contact::EntryType &entryType, bool assend)
 {
-    std::vector<Contact> contacts = mContacts;
+    auto contacts = mContacts;
     sort(contacts, entryType, assend);
     return contacts;
 }

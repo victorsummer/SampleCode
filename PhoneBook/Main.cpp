@@ -22,8 +22,8 @@ int main ()
     phoneBook.sortInPlace(Contact::AgeEntry, false);
     phoneBook.printContacts();
 
-    phoneBook.filterInPlace([](Contact contact)->bool{
-        return contact.age() < 55;
+    phoneBook.filterInPlace([](Contact contact)->bool {
+                        return contact.age() < 55;
     });
     phoneBook.printContacts();
 
