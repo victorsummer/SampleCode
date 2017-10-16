@@ -13,13 +13,12 @@ Marvel,26,Shenzhen,1454\n\
 Rick,25,,556546\n\
 Myung,55,Chengdu,";
 
-int main ()
-{
+int main () {
     PhoneBook phoneBook(PERSONS);
 
     phoneBook.printContacts();
 
-    phoneBook.sortInPlace(Contact::AgeEntry, false);
+    phoneBook.sortInPlace(Contact::EntryType::AgeEntry, false);
     phoneBook.printContacts();
 
     phoneBook.filterInPlace([](Contact contact)->bool {

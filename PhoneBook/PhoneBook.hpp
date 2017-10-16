@@ -1,15 +1,12 @@
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#pragma once
 
 #include <vector>
 #include <functional>
 #include "Contact.hpp"
 
-class PhoneBook
-{
+class PhoneBook {
 public:
     PhoneBook(const char *rawData);
-    ~PhoneBook();
 
     void sortInPlace(const Contact::EntryType &entryType, bool assend = true);
     void filterInPlace(std::function<bool(Contact)> func);
@@ -30,5 +27,3 @@ private:
 private:
     std::vector<Contact> mContacts;
 };
-
-#endif // PHONEBOOK_H
