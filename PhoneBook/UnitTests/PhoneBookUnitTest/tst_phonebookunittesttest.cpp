@@ -13,8 +13,7 @@ Rick,25,,556546\n\
 Myung,55,Chengdu,";
 
 
-class PhoneBookUnitTestTest : public QObject
-{
+class PhoneBookUnitTestTest : public QObject {
     Q_OBJECT
 
 public:
@@ -30,22 +29,17 @@ private:
     std::shared_ptr<PhoneBook> mPhoneBook;
 };
 
-PhoneBookUnitTestTest::PhoneBookUnitTestTest()
-{
-}
+PhoneBookUnitTestTest::PhoneBookUnitTestTest() {}
 
-void PhoneBookUnitTestTest::initTestCase()
-{
+void PhoneBookUnitTestTest::initTestCase() {
     mPhoneBook = std::make_shared<PhoneBook>(PERSONS);
 }
 
-void PhoneBookUnitTestTest::cleanupTestCase()
-{
+void PhoneBookUnitTestTest::cleanupTestCase() {
     mPhoneBook.reset();
 }
 
-void PhoneBookUnitTestTest::testSort()
-{
+void PhoneBookUnitTestTest::testSort() {
     mPhoneBook->sortInPlace(Contact::NameEntry);
     QVERIFY2(mPhoneBook->contact(0).name() == "Boby", "PhoneBook::sortInPlace the sort result is incorrect.");
     QVERIFY2(mPhoneBook->contact(1).name() == "Marvel", "PhoneBook::sortInPlace the sort result is incorrect.");
@@ -59,8 +53,7 @@ void PhoneBookUnitTestTest::testSort()
     QVERIFY2(mPhoneBook->contact(3).name() == "Myung", "PhoneBook::sortInPlace the sort result is incorrect.");
 }
 
-void PhoneBookUnitTestTest::testFilter()
-{
+void PhoneBookUnitTestTest::testFilter() {
     // Filter contacts whose age is under 30
     mPhoneBook->filterInPlace([](Contact contact)->bool {
         return contact.age() < 30;
