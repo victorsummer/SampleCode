@@ -14,7 +14,8 @@ public:
     explicit Contact(const std::string &name,
                      int age,
                      const std::string &city,
-                     const std::string &phone);
+                     const std::string &phone) : mName(name), mAge(age),
+                                                 mCity(city), mPhone(phone) {}
 
     inline const std::string &name() const { return mName; }
     inline void setName(const std::string &name) { mName = name; }
