@@ -17,6 +17,7 @@ TEMPLATE = app
 
 SOURCES += \
     Main.cpp \
+    Contact.cpp \
     PhoneBook.cpp \
     CSVParser.cpp
 

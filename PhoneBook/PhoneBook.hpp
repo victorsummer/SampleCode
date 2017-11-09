@@ -6,10 +6,10 @@
 
 class PhoneBook {
 public:
-    PhoneBook(const char *rawData);
+    explicit PhoneBook(const char *rawData);
 
     void sortInPlace(const Contact::EntryType &entryType, bool assend = true);
-    void filterInPlace(std::function<bool(Contact)> func);
+    void filterInPlace(std::function<bool(const Contact &)> func);
 
     std::vector<Contact> sort(const Contact::EntryType &entryType, bool assend = true);
     std::vector<Contact> filter(std::function<bool(Contact)> func);
@@ -22,7 +22,7 @@ private:
     Contact fromCSVString(std::string row);
     std::string toCSVString(Contact &contact);
     void sort(std::vector<Contact> &contacts, const Contact::EntryType &entryType, bool assend = true);
-    void filter(std::vector<Contact> &contacts, std::function<bool(Contact)> func);
+    void filter(std::vector<Contact> &contacts, std::function<bool(const Contact &)> func);
 
 private:
     std::vector<Contact> mContacts;
