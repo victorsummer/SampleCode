@@ -43,7 +43,7 @@ void PhoneBook::printContacts() {
         rows.push_back(row);
     }
     CSVParser::join(contacts, rows, '\n');
-    std::cout << contacts;
+    std::cout << contacts << std::endl;
 }
 
 Contact &PhoneBook::contact(const int &index) {
