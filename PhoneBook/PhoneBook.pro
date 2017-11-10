@@ -17,10 +17,9 @@ TEMPLATE = app
 
 SOURCES += \
     Main.cpp \
-    PhoneBook.cpp \
-    CSVParser.cpp
+    PhoneBook.cpp
 
 HEADERS += \
     Contact.hpp \
     PhoneBook.hpp \
-    CSVParser.hpp
+    PhoneAlgorithm.hpp

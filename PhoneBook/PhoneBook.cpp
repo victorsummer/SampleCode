@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <iostream>
 #include "PhoneBook.hpp"
-#include "CSVParser.hpp"
+#include "PhoneAlgorithm.hpp"
 
 PhoneBook::PhoneBook(const char *rawData) {
     std::vector<std::string> rows;
-    CSVParser::split(rawData, rows);
+    PhoneAlgorithm::split<std::string>(rawData, rows, '\n');
     rows.erase(rows.begin());
     for (auto &row : rows) {
         mContacts.push_back(fromCSVString(row));
@@ -42,7 +42,7 @@ void PhoneBook::printContacts() {
         std::string row = toCSVString(contact);
         rows.push_back(row);
     }
-    CSVParser::join(contacts, rows, '\n');
+    PhoneAlgorithm::join(contacts, rows, '\n');
     std::cout << contacts << std::endl;
 }
 
@@ -56,7 +56,7 @@ int PhoneBook::contactCount() {
 
 Contact PhoneBook::fromCSVString(std::string row) {
     std::vector<std::string> item;
-    CSVParser::split(row, item, ',');
+    PhoneAlgorithm::split(row, item, ',');
     return Contact(item.at(0), std::stoi(item.at(1)), item.at(2), item.at(3));
 }
 
@@ -67,7 +67,7 @@ std::string PhoneBook::toCSVString(Contact &contact) {
     entries.push_back(contact.city());
     entries.push_back(contact.phone());
     std::string row;
-    CSVParser::join(row, entries);
+    PhoneAlgorithm::join(row, entries, ',');
     return row;
 }
 

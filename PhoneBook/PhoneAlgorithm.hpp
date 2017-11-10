@@ -1,11 +1,16 @@
-#include <sstream>
-#include "CSVParser.hpp"
+#pragma once
 
-namespace CSVParser {
+#include <vector>
+#include <string>
+#include <functional>
+#include <type_traits>
 
-void split(const std::string &s, std::vector<std::string> &elems, char delim) {
-    std::string temp;
-    for (unsigned int i = 0; i < s.size(); ++i) {
+namespace PhoneAlgorithm {
+
+template <typename T>
+void split(const T &s, std::vector<T> &elems, typename T::value_type delim) noexcept {
+    T temp;
+    for (size_t i = 0; i < s.size(); ++i) {
         if (s[i] == delim) {
             elems.push_back(temp);
             temp.clear();
@@ -21,7 +26,8 @@ void split(const std::string &s, std::vector<std::string> &elems, char delim) {
     }
 }
 
-void join(std::string &s, const std::vector<std::string> &elems, char delim) {
+template <typename T>
+void join(T &s, const std::vector<T> &elems, typename T::value_type delim) noexcept {
     for (auto elem : elems) {
         s.append(elem + delim);
     }
