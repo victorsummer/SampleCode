@@ -8,7 +8,7 @@ PhoneBook::PhoneBook(const char *rawData) {
     std::vector<std::string> rows;
     PhoneAlgorithm::split<std::string>(rawData, rows, '\n');
     rows.erase(rows.begin());
-    for (auto &row : rows) {
+    for (const auto &row : rows) {
         mContacts.push_back(fromCSVString(row));
     }
 }
@@ -38,7 +38,7 @@ void PhoneBook::printContacts() {
     std::cout << "Contact list:" << std::endl;
     std::string contacts;
     std::vector<std::string> rows;
-    for (auto &contact : mContacts) {
+    for (const auto &contact : mContacts) {
         std::string row = toCSVString(contact);
         rows.push_back(row);
     }
@@ -54,13 +54,13 @@ int PhoneBook::contactCount() {
     return mContacts.size();
 }
 
-Contact PhoneBook::fromCSVString(std::string row) {
+Contact PhoneBook::fromCSVString(const std::string &row) {
     std::vector<std::string> item;
     PhoneAlgorithm::split(row, item, ',');
     return Contact(item.at(0), std::stoi(item.at(1)), item.at(2), item.at(3));
 }
 
-std::string PhoneBook::toCSVString(Contact &contact) {
+std::string PhoneBook::toCSVString(const Contact &contact) {
     std::vector<std::string> entries;
     entries.push_back(contact.name());
     entries.push_back(std::to_string(contact.age()));

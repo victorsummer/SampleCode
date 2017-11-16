@@ -19,8 +19,8 @@ public:
     int contactCount();
 
 private:
-    Contact fromCSVString(std::string row);
-    std::string toCSVString(Contact &contact);
+    Contact fromCSVString(const std::string &row);
+    std::string toCSVString(const Contact &contact);
     void sort(std::vector<Contact> &contacts, const Contact::EntryType &entryType, bool assend = true);
     void filter(std::vector<Contact> &contacts, std::function<bool(const Contact &)> func);
 
