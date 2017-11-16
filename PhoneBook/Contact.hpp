@@ -28,7 +28,7 @@ public:
 
 private:
     std::string mName;
-    int mAge = 0;
+    int mAge{0};
     std::string mCity;
     std::string mPhone;
 };
