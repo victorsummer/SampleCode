@@ -10,7 +10,7 @@ namespace PhoneAlgorithm {
 template <typename T>
 void split(const T &s, std::vector<T> &elems, typename T::value_type delim) noexcept {
     T temp;
-    for (size_t i = 0; i < s.size(); ++i) {
+    for (auto i = size_t{0}; i < s.size(); ++i) {
         if (s[i] == delim) {
             elems.push_back(temp);
             temp.clear();
@@ -28,7 +28,7 @@ void split(const T &s, std::vector<T> &elems, typename T::value_type delim) noex
 
 template <typename T>
 void join(T &s, const std::vector<T> &elems, typename T::value_type delim) noexcept {
-    for (auto elem : elems) {
+    for (const auto &elem : elems) {
         s.append(elem + delim);
     }
 }
